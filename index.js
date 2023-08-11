@@ -22,15 +22,37 @@ for (let i = 0; i < characters.length; i++) {
 function startTheGame(event) {
   screen2.style.display = "none";
   screen3.style.display = "flex";
-  const screenWidth = window.innerWidth;
-  const screenHeight = window.innerHeight;
+  const screenWidth = window.innerWidth ;
+  const screenHeight = window.innerHeight ;
+
+  let xPosition; 
+  let yPosition;
 
   let interval = setInterval(() => {
+
+
     const thumbnail = document.createElement("img");
     thumbnail.src = event.target.src;
 
-    const xPosition = Math.random() * screenWidth;
-    const yPosition = Math.random() * screenHeight;
+  
+
+
+    let xPosition =   checkx();
+    let yPosition =   checky();
+
+    //     if(xPosition<0){
+    //       return Math.random()
+    //     }
+    //     else
+    //    { return xPosition;
+    // }
+    //     if(yPosition<0){
+    //       return Math.random()
+    //     }
+    //     else
+    //    { return yPosition;}
+
+
 
     thumbnail.style.top = yPosition + "px"
     thumbnail.style.left = xPosition + "px"
@@ -39,7 +61,7 @@ function startTheGame(event) {
 
     timer[0].innerHTML = appendZero(Number(timer[0].innerHTML) + 1);
 
-    if (timer[0].innerHTML === "60") {
+    if (timer[0].innerHTML === "05") {
       clearInterval(interval);
       showFinalScore(timer[1].innerHTML);
     }
@@ -58,16 +80,48 @@ function startTheGame(event) {
       removeImage(thumbnail);
       timer[1].innerHTML = appendZero(Number(timer[1].innerHTML) + 1);
     };
-    
+
     function removeImage(image) {
       image.style.display = "none";
     }
   }, 1000);
+  function checkx() {
+
+    let x = Math.random() * screenWidth;
+  
+    if (x < 0  || x> 1000 ) {
+      return checkx();
+    }
+    else {
+      return x;
+    }
+  }
+  
+  function checky() {
+  
+   let y = Math.random() * screenHeight;
+  
+  
+    if (y < 0 || y> 500) {
+      return checky();
+    }
+    else {
+      return y;
+    }
+  }
+  
 }
 
+
 function showFinalScore(score) {
-  screen3.style.display = "none";
+  screen3.style.display = "flex";
+  screen3.style.Position = "relative";
+
+  // screen3.style = ba
+  
   screen4.style.display = "flex";
   const finalScoreSpan = document.getElementById("final-score");
   finalScoreSpan.textContent = score;
 }
+
+
