@@ -61,7 +61,7 @@ function startTheGame(event) {
 
     timer[0].innerHTML = appendZero(Number(timer[0].innerHTML) + 1);
 
-    if (timer[0].innerHTML === "05") {
+    if (timer[0].innerHTML === "59") {
       clearInterval(interval);
       showFinalScore(timer[1].innerHTML);
     }
@@ -89,7 +89,7 @@ function startTheGame(event) {
 
     let x = Math.random() * screenWidth;
   
-    if (x < 0  || x> 1000 ) {
+    if (x < 0  || x> 1300 ) {
       return checkx();
     }
     else {
@@ -102,7 +102,7 @@ function startTheGame(event) {
    let y = Math.random() * screenHeight;
   
   
-    if (y < 0 || y> 500) {
+    if (y < 0 || y> 620) {
       return checky();
     }
     else {
