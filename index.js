@@ -39,7 +39,7 @@ function startTheGame(event) {
 
     timer[0].innerHTML = appendZero(Number(timer[0].innerHTML) + 1);
 
-    if (timer[0].innerHTML === "10") {
+    if (timer[0].innerHTML === "60") {
       clearInterval(interval);
       showFinalScore(timer[1].innerHTML);
     }
