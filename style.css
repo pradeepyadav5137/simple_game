@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+body{
+    background: #314755;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #26a0da, #314755);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #26a0da, #314755); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+.screen{
+    height: 100vh;
+    display: flex;
+}
+#screen1{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#screen1 h2{
+    margin-bottom: 2rem;
+    font-size: 3rem;
+}
+#screen1 button{
+    border: 2px solid #000;
+    background-color: #000;
+    padding: 1rem;
+    color: #fff;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.45s;
+}
+#screen1 button:hover{
+    background-color: #fff;
+    color: #000;
+}
+#screen2, #screen3{
+    display: none;
+}
+#screen2 .photo-wrapper{
+    display: flex;
+    margin: 0 auto;
+    width: 600px;
+    height: 100vh;
+    padding: 1rem;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#screen2 img{
+    width: 150px;
+    height: 150px;
+    margin: 0 1rem;
+}
+#screen3 .main{
+    position: relative;
+}
+#screen3 img{
+    width: 70px;
+    height: 70px;
+    position: absolute;
+}
+
+#screen4 {
+    justify-content: center;
+    align-items: center;
+}
+
+.final-score {
+    text-align: center;
+}
+
+.final-score h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.final-score p {
+    font-size: 1.5rem;
+}
+
+
+
+
+
+
