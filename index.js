@@ -5,9 +5,6 @@ const screen3 = document.querySelector("#screen3");
 const characters = document.querySelectorAll("#screen2 img");
 const mainDiv = document.querySelector(".main");
 let timer = document.querySelectorAll(".top span")
-const thumbnail = document.createElement("img"); //<img >
-
-
 
 startButton.onclick = () => {
   screen1.style.display = "none";
@@ -28,12 +25,10 @@ function startTheGame(event) {
   const screenWidth = window.innerWidth;
   const screenHeight = window.innerHeight;
 
-let interval= setInterval(() => {
-    const thumbnail = document.createElement("img"); //<img >
-    // thumbnail.setAttribute("src", )
-    // thumbnail.src = characters[i].src
+  let interval = setInterval(() => {
+    const thumbnail = document.createElement("img");
     thumbnail.src = event.target.src;
-    
+
     const xPosition = Math.random() * screenWidth;
     const yPosition = Math.random() * screenHeight;
 
@@ -42,50 +37,32 @@ let interval= setInterval(() => {
 
     mainDiv.append(thumbnail);
 
-    
-    
-    
     timer[0].innerHTML = appendZero(Number(timer[0].innerHTML) + 1);
-    
-    
-    
-   
-    if (timer[0].innerHTML === "60") {
+
+    if (timer[0].innerHTML === "10") {
       clearInterval(interval);
       showFinalScore(timer[1].innerHTML);
-  }
+    }
 
-  function appendZero(Zero) {
+    function appendZero(Zero) {
       if (Zero < 10)
-          return "0" + Zero;
+        return "0" + Zero;
       if (Zero >= 60) {
-          return "00";
+        return "00";
       }
       else
-          return Zero;
-  }
-
-
-
-  thumbnail.onclick = () => {
-    removeImage(thumbnail);
-    timer[1].innerHTML = appendZero(Number(timer[1].innerHTML) + 1);
-};
-
-function removeImage(image) {
-    image.style.display = "none";
-}
-
-function appendZero(Zero) {
-    if (Zero < 10)
-        return "0" + Zero;
-    if (Zero >= 60) {
-        return "00";
-    }
-    else
         return Zero;
-}
-}, 1000);
+    }
+
+    thumbnail.onclick = () => {
+      removeImage(thumbnail);
+      timer[1].innerHTML = appendZero(Number(timer[1].innerHTML) + 1);
+    };
+    
+    function removeImage(image) {
+      image.style.display = "none";
+    }
+  }, 1000);
 }
 
 function showFinalScore(score) {
@@ -94,14 +71,3 @@ function showFinalScore(score) {
   const finalScoreSpan = document.getElementById("final-score");
   finalScoreSpan.textContent = score;
 }
-
-// if (timer[0].innerHTML === "60") {
-// clearInterval(interval);
-// }}
-
-
-
-
-
-
-

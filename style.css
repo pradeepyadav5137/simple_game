@@ -63,6 +63,7 @@ body{
 }
 
 #screen4 {
+    display: none;
     justify-content: center;
     align-items: center;
 }
