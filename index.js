@@ -6,6 +6,7 @@ const characters = document.querySelectorAll("#screen2 img");
 const mainDiv = document.querySelector(".main");
 const PlayButton = document.querySelector("#screen4 button")
 let timer = document.querySelectorAll(".top span");
+let interval; 
 
 
 startButton.onclick = () => {
@@ -14,11 +15,14 @@ startButton.onclick = () => {
 };
 
 PlayButton.onclick = () => {
-  screen3.style.display = "none";
-  screen4.style.display = "none";
-  screen1.style.display = "none";
-  screen2.style.display = "flex";
-};
+    clearInterval(interval); 
+    timer[0].innerHTML = "60"; 
+    timer[1].innerHTML = "00"; 
+    mainDiv.innerHTML = ""; 
+    screen4.style.display = "none";
+    screen1.style.display = "none";
+    screen2.style.display = "flex"; 
+  };
 
 
 for (let i = 0; i < characters.length; i++) {
