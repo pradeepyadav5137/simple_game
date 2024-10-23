@@ -4,12 +4,22 @@ const screen2 = document.querySelector("#screen2");
 const screen3 = document.querySelector("#screen3");
 const characters = document.querySelectorAll("#screen2 img");
 const mainDiv = document.querySelector(".main");
-let timer = document.querySelectorAll(".top span")
+const PlayButton = document.querySelector("#screen4 button")
+let timer = document.querySelectorAll(".top span");
+
 
 startButton.onclick = () => {
   screen1.style.display = "none";
   screen2.style.display = "flex";
 };
+
+PlayButton.onclick = () => {
+  screen3.style.display = "none";
+  screen4.style.display = "none";
+  screen1.style.display = "none";
+  screen2.style.display = "flex";
+};
+
 
 for (let i = 0; i < characters.length; i++) {
   characters[i].onclick = (e) => {
@@ -18,6 +28,7 @@ for (let i = 0; i < characters.length; i++) {
     startTheGame(e);
   };
 }
+
 
 function startTheGame(event) {
   screen2.style.display = "none";
@@ -40,28 +51,14 @@ function startTheGame(event) {
     let xPosition =   checkx();
     let yPosition =   checky();
 
-    //     if(xPosition<0){
-    //       return Math.random()
-    //     }
-    //     else
-    //    { return xPosition;
-    // }
-    //     if(yPosition<0){
-    //       return Math.random()
-    //     }
-    //     else
-    //    { return yPosition;}
-
-
-
     thumbnail.style.top = yPosition + "px"
     thumbnail.style.left = xPosition + "px"
 
     mainDiv.append(thumbnail);
 
-    timer[0].innerHTML = appendZero(Number(timer[0].innerHTML) + 1);
+    timer[0].innerHTML = appendZero(Number(timer[0].innerHTML) - 1);
 
-    if (timer[0].innerHTML === "59") {
+    if (timer[0].innerHTML === "40") {
       clearInterval(interval);
       showFinalScore(timer[1].innerHTML);
     }
@@ -84,7 +81,7 @@ function startTheGame(event) {
     function removeImage(image) {
       image.style.display = "none";
     }
-  }, 1000);
+  }, 500);
   function checkx() {
 
     let x = Math.random() * screenWidth;
@@ -123,5 +120,3 @@ function showFinalScore(score) {
   const finalScoreSpan = document.getElementById("final-score");
   finalScoreSpan.textContent = score;
 }
-
-
